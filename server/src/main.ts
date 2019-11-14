@@ -1,5 +1,7 @@
 import { AppServer } from './app/app';
 import onerror from 'koa-onerror';
+import { PORT } from './app/config/variate';
+
 const appServer = new AppServer();
 
 function normalizePort(val) {
@@ -13,7 +15,7 @@ function normalizePort(val) {
   return false;
 }
 
-const port = normalizePort(process.env.PORT || '8080');
+const port = normalizePort(PORT || '8080');
 /**
  * 由于原生的koa的context.onerror不够全面,
  * 因此这里重写context.onerror

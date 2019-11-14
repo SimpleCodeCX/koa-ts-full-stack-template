@@ -1,6 +1,6 @@
 import { MARIADBPWD } from './variate';
 
-// 服务器开发版
+// 测试版
 export default {
   mariadb: {
     host: 'xxx.xxx.xxx.xxx',

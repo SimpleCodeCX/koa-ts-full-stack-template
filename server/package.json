@@ -1,15 +1,16 @@
 {
   "name": "koa-ts-full-stack-server",
   "version": "1.0.0",
-  "license": "ISC",
+  "license": "MIT",
   "author": "Simple",
   "description": "koa ts template",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e ts --exec ts-node -r tsconfig-paths/register src/main.ts",
-    "dev-server": "nodemon -e ts --exec ts-node -r tsconfig-paths/register src/main.ts",
-    "prod": "node -r tsconfig-paths/register ./src/main.js",
-    "test": "jest --runInBand",
+    "start": "nodemon -e ts --exec ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "cross-env NODE_ENV=development npm run start",
+    "start:test": "cross-env NODE_ENV=testing npm run start",
+    "prod": "cross-env NODE_ENV=production node -r tsconfig-paths/register ./src/main.js",
+    "test": "cross-env NODE_ENV=development jest --runInBand",
     "build": "npm run rm-dist && npm run build-ts && npm run copy-static",
     "build-ts": "tsc -b ./  --verbose",
     "copy-static": "ts-node copyStatic.ts",
@@ -24,6 +25,7 @@
     "ts"
   ],
   "dependencies": {
+    "cross-env": "^6.0.3",
     "debug": "^4.1.1",
     "koa": "^2.8.1",
     "koa-body": "^4.1.1",
@@ -55,7 +57,6 @@
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
     "apidoc": "^0.17.7",
-    "cross-env": "^6.0.3",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",

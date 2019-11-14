@@ -1,13 +1,14 @@
 import devConfig from './dev.config';
-import devServer from './dev-server.config';
+import testConfig from './test.config';
 import prodConfig from './prod.config';
+import { NODE_ENV } from './variate';
 import { normal } from '@lib/logger';
 const logger = normal();
 
 class GlobalConfig {
   config = {
     mariadb: devConfig.mariadb,
-    isDev: /(^dev.*|^test.*)/.test(process.env.npm_lifecycle_event)
+    isDev: NODE_ENV === 'development' || NODE_ENV === 'testing'
   };
 
   constructor() {
@@ -15,12 +16,12 @@ class GlobalConfig {
   }
 
   getConfig() {
-    switch (process.env.npm_lifecycle_event) {
-      case 'dev': this.config = Object.assign(this.config, devConfig);
+    switch (NODE_ENV) {
+      case 'development': this.config = Object.assign(this.config, devConfig);
         break;
-      case 'dev-server': this.config = Object.assign(this.config, devServer);
+      case 'testing': this.config = Object.assign(this.config, testConfig);
         break;
-      case 'prod': this.config = Object.assign(this.config, prodConfig);
+      case 'production': this.config = Object.assign(this.config, prodConfig);
         break;
       default: this.config = Object.assign(this.config, devConfig);
     }
@@ -29,6 +30,10 @@ class GlobalConfig {
 }
 
 const globalConfig = new GlobalConfig();
+if (!globalConfig.config.mariadb.password) {
+  logger.error('process.env.MARIADBPWD is undefined. please see src/app/config/variate.ts.');
+  throw new Error('process.env.MARIADBPWD is undefined. please see src/app/config/variate.ts.');
+}
 logger.info(globalConfig.config);
 
 const GLOBAL_CONFIG = globalConfig.config;

@@ -50,7 +50,7 @@ There are three running environment can be configured: development, testing and 
 You can set NODE_ENV environment variables to select one of the mode.
 
 ```javascript
- cross-env NODE_ENV=development npm run start
+ npx cross-env NODE_ENV=development npm run start
 ```
 
 Every running environment is corresponding to a configuration file.
@@ -60,7 +60,7 @@ Please see myProject/server/src/app/config/*.
 
 ```javascript
  cd myProject/server
- cross-env NODE_ENV=development npm run start
+ npx cross-env NODE_ENV=development npm run start
 ```
 
 or 
@@ -74,7 +74,7 @@ or
 
 ```javascript
  cd myProject/server
- cross-env NODE_ENV=testing npm run start
+ npx cross-env NODE_ENV=testing npm run start
 ```
 
 or 
@@ -110,7 +110,7 @@ Note: When start the project, you need to configure your mysql database password
 
 cross-platform:
 ```javascript
- cross-env MARIADBPWD=xxx NODE_ENV=development npm run start
+ npx cross-env MARIADBPWD=xxx NODE_ENV=development npm run start
 ```
 
 ## The Project Entry Variables
@@ -125,7 +125,7 @@ For example:
 
 ```javascript
  // MARIADBPWD is the mysql database password
- cross-env PORT=8080 MARIADBPWD=xxx NODE_ENV=development npm run start
+ npx cross-env PORT=8080 MARIADBPWD=xxx NODE_ENV=development npm run start
 ```
 
 ## Running On Different Platforms
@@ -147,7 +147,7 @@ In Linux:
 cross-platform:
 
 ```javascript
- cross-env MARIADBPWD=xxx NODE_ENV=development npm run start
+ npx cross-env MARIADBPWD=xxx NODE_ENV=development npm run start
 ```
 
 
@@ -158,13 +158,13 @@ cross-platform:
 The development mode is suitable for you to run in localhost. You can configure it to connect to the local mysql database. For details, please see the file: myProject/server/src/app/config/dev.config.ts.
 
 ```javascript
- cross-env NODE_ENV=development PORT=8080 MARIADBPWD=xxx npm run start
+ npx cross-env NODE_ENV=development PORT=8080 MARIADBPWD=xxx npm run start
 ```
 
 or 
 
 ```javascript
- cross-env PORT=8080 MARIADBPWD=xxx npm run start:dev
+ npx cross-env PORT=8080 MARIADBPWD=xxx npm run start:dev
 ```
 or
 
@@ -193,7 +193,7 @@ Then, run myProject/dist/src/main.js.
 ```javascript
  cd myProject/dist
  npm install
- cross-env PORT=8080 MARIADBPWD=xxx npm run prod
+ npx cross-env PORT=8080 MARIADBPWD=xxx npm run prod
 ```
 
 ## In Testing Mode
@@ -203,13 +203,13 @@ Then, run myProject/dist/src/main.js.
 The testing mode is suitable for you to deploy on the beta server. You can configure it to connect to the beta mysql database. For details, please see the file: myProject/server/src/app/config/test.config.ts.
 
 ```javascript
- cross-env NODE_ENV=testing PORT=8080 MARIADBPWD=xxx npm run start
+ npx cross-env NODE_ENV=testing PORT=8080 MARIADBPWD=xxx npm run start
 ```
 
 or 
 
 ```javascript
- cross-env PORT=8080 MARIADBPWD=xxx npm run start:test
+ npx cross-env PORT=8080 MARIADBPWD=xxx npm run start:test
 ```
 or
 
@@ -235,7 +235,7 @@ Unit test can be used to ensure the quality of the code.
 
 ```javascript
  cd myProject/server
- cross-env NODE_ENV=development PORT=8080 MARIADBPWD=xxx npm run test
+ npx cross-env NODE_ENV=development PORT=8080 MARIADBPWD=xxx npm run test
 ```
 
 or

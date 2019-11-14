@@ -2,10 +2,6 @@
 
 .vscode-upload.json
 **/*/package-lock.json
-**/shell/start-devServer.sh
-**/shell/start-local.cmd
-**/shell/test.cmd
-**/shell/start-prod.sh
 **/apidoc/dist/*
 **/__bak__/*
 

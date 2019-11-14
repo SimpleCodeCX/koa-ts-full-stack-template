@@ -18,7 +18,7 @@ class GlobalConfig {
     switch (process.env.npm_lifecycle_event) {
       case 'dev': this.config = Object.assign(this.config, devConfig);
         break;
-      case 'devServer': this.config = Object.assign(this.config, devServer);
+      case 'dev-server': this.config = Object.assign(this.config, devServer);
         break;
       case 'prod': this.config = Object.assign(this.config, prodConfig);
         break;

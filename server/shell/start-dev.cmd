@@ -2,5 +2,5 @@
 
 set PORT=8080
 :: 数据库密码
-set MARIADBPWD=xxxx
+set DB_PASSWORD=xxxx
 npm run start:dev

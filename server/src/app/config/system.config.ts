@@ -31,8 +31,8 @@ class GlobalConfig {
 
 const globalConfig = new GlobalConfig();
 if (!globalConfig.config.mariadb.password) {
-  logger.error('process.env.MARIADBPWD is undefined. please see src/app/config/variate.ts.');
-  throw new Error('process.env.MARIADBPWD is undefined. please see src/app/config/variate.ts.');
+  logger.error('process.env.DB_PASSWORD is undefined. please see src/app/config/variate.ts.');
+  throw new Error('process.env.DB_PASSWORD is undefined. please see src/app/config/variate.ts.');
 }
 logger.info(globalConfig.config);
 

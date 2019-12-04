@@ -10,6 +10,10 @@
   ],
   "eslint.workingDirectories": [
     {
+      "directory": "./common",
+      "changeProcessCWD": true
+    },
+    {
       "directory": "./server",
       "changeProcessCWD": true
     }

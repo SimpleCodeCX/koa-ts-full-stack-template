@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "prepush": "cd server && npm run lint",
+    "prepush": "cd server && npm run lint && cd ../common && npm run lint",
     "build:common": "tsc -b -w ./common/  --verbose"
   },
   "author": "",
